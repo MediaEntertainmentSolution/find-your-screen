@@ -1626,6 +1626,7 @@ body {
       // RENDER QUESTION
       // ═══════════════════════════════════
       function renderQ() {
+		  document.getElementById("quizBody").classList.remove("fade-out");
         const pct = Math.round((curQ / (isSBM2 ? 12 : 13)) * 100);
         document.getElementById("progressFill").style.width = pct + "%";
 
