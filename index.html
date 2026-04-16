@@ -481,12 +481,10 @@
         line-height: 1.72;
         margin-bottom: 28px;
       }
-     .rec-card {
+      .rec-card {
         display: flex;
-        flex-direction: column;
         justify-content: center;
         align-items: center;
-        text-align: center;
         height: 80%;
         width: auto;
         padding-left: 0px;
@@ -501,7 +499,7 @@
         padding-left: 50px;
         padding-right: 50px;
         padding-top: 0;
-        margin-bottom: 16px;
+        padding-bottom: 0px;
         width: 100%;
 
         aspect-ratio: 16/9;
@@ -550,7 +548,7 @@
         color: var(--red);
       }
 
-  /* Portrait overrides */
+      /* Portrait overrides */
 @media screen and (orientation: portrait) {
   .rec-card {
     flex-direction: column;
@@ -562,8 +560,6 @@
     margin-bottom: 16px;
   }
 }
-
-
     </style>
   </head>
   <body>
