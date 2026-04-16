@@ -1700,7 +1700,7 @@ body.classList.remove('fade-out');
       }
 
       function pickSize(val) {
-
+document.getElementById('quizBody').classList.remove('fade-out'); // added this ****
 
 	answers[QS[curQ].id] = val;
   startIdle();
