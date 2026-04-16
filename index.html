@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -8,24 +8,25 @@
     />
     <title>Find Your TV Personality</title>
     <style>
-		@font-face {
-  font-family: 'LGSmart';
-  src: url('LGSmartRegular.woff2') format('woff2'),
-       url('LGSmartRegular.ttf') format('truetype');
-  font-weight: 400;
-  font-style: normal;
-}
+      @font-face {
+        font-family: "LGSmart";
+        src:
+          url("LGSmartRegular.woff2") format("woff2"),
+          url("LGSmartRegular.ttf") format("truetype");
+        font-weight: 400;
+        font-style: normal;
+      }
 
-body {
-  font-family: 'LGSmart', sans-serif;
-}
+      body {
+        font-family: "LGSmart", sans-serif;
+      }
 
       :root {
         --cream: #faf8f4;
         --white: #ffffff;
         --charcoal: #1a1a1a;
         --mid: #6b6b6b;
-        --red: #c8102e;
+        --red: #ee2929;
         --red-light: #ffe8ec;
         --border: #e8e4dc;
       }
@@ -37,18 +38,14 @@ body {
       }
       html,
       body {
-        width: 100%;
-        height: 100%;
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-        background: #f5f5f5;
-        overflow: hidden;
+        background: url("Images/bg.png") no-repeat center center fixed;
+        background-size: cover;
       }
       #app {
         width: 100%;
-        max-width: 480px;
         height: 100vh;
         margin: 0 auto;
-        background: var(--cream);
+        background: transparent;
         position: relative;
         overflow: hidden;
         display: flex;
@@ -59,7 +56,7 @@ body {
         inset: 0;
         display: none;
         flex-direction: column;
-        background: var(--cream);
+        background: transparent;
       }
       .screen.active {
         display: flex;
@@ -118,7 +115,8 @@ body {
 
       /* INTRO */
       #screen-intro {
-        background: var(--cream);
+        background: rgba(250, 248, 244, 0.85);
+        backdrop-filter: blur(6px);
         color: var(--charcoal);
         justify-content: center;
         align-items: center;
@@ -132,8 +130,13 @@ body {
         color: var(--red);
         margin-bottom: 44px;
       }
+      .lg-logo {
+        height: 40px;
+        width: auto;
+        margin-bottom: 104px;
+      }
       .intro-title {
-        font-size: 34px;
+        font-size: 60px;
         font-weight: 300;
         color: var(--charcoal);
         line-height: 1.2;
@@ -145,15 +148,16 @@ body {
         display: block;
       }
       .intro-sub {
-        font-size: 14px;
+        font-size: 25px;
         color: var(--mid);
         margin-bottom: 44px;
-        line-height: 1.7;
+        line-height: 1.2;
       }
       .intro-pills {
-        display: flex;
-        flex-wrap: wrap;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
         gap: 8px;
+
         justify-content: center;
         margin-bottom: 44px;
       }
@@ -162,7 +166,7 @@ body {
         border: 1px solid rgba(255, 255, 255, 0.12);
         border-radius: 99px;
         padding: 7px 14px;
-        font-size: 13px;
+        font-size: 20px;
         color: var(--charcoal);
       }
       .intro-cta {
@@ -171,39 +175,45 @@ body {
         border: none;
         border-radius: 14px;
         padding: 18px 48px;
-        font-size: 16px;
-        font-weight: 700;
+        font-size: 25px;
+        font-weight: 500;
         cursor: pointer;
         box-shadow: 0 6px 24px rgba(200, 16, 46, 0.35);
       }
       .intro-tap {
-        font-size: 11px;
+        font-size: 20px;
         color: #444;
         margin-top: 14px;
       }
       .disclaimer {
-	font-size: 10px;
+        font-size: 14px;
         color: grey;
-        margin-top: 14px;
+        margin-top: 20px;
       }
 
       /* QUIZ HEADER */
       .quiz-header {
         background: var(--cream);
-        padding: 13px 16px;
+        padding-left: 80px;
+        padding-right: 80px;
+        padding-top: 5px;
         display: flex;
         align-items: center;
         justify-content: space-between;
         flex-shrink: 0;
-	border-bottom: 1px solid var(--border);
+        border-bottom: 1px solid var(--border);
       }
       .hdr-logo {
-        font-size: 18px;
-        font-weight: 800;
-        color: var(--red);
+        height: 60%;
+        width: auto;
+        margin-bottom: 5px;
+      }
+      .hdr-logo img {
+        height: 90%;
+        width: auto;
       }
       .hdr-axis {
-        font-size: 10px;
+        font-size: 20px;
         font-weight: 600;
         text-transform: uppercase;
         letter-spacing: 0.12em;
@@ -213,8 +223,8 @@ body {
         background: transparent;
         border: 1px solid var(--border);
         border-radius: 6px;
-        padding: 5px 10px;
-        font-size: 11px;
+        padding: 10px 15px;
+        font-size: 22px;
         color: var(--mid);
         cursor: pointer;
       }
@@ -224,7 +234,7 @@ body {
       }
       .progress-bar {
         height: 3px;
-        background: #EAEAEA;
+        background: #eaeaea;
         flex-shrink: 0;
       }
       .progress-fill {
@@ -238,19 +248,21 @@ body {
         overflow-y: auto;
       }
       .quiz-body {
-	min-height: calc(100vh - 80px);
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-        padding: 28px 20px 200px;
-	transition: transform 0.25s ease, opacity 0.25s ease;
+        min-height: calc(100vh - 80px);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 200px 200px 200px;
+        transition:
+          transform 0.25s ease,
+          opacity 0.25s ease;
       }
       .quiz-body.fade-out {
-	opacity: 0;
-	transform: translateY(-10px);
+        opacity: 0;
+        transform: translateY(-10px);
       }
       .q-num {
-        font-size: 10px;
+        font-size: 20px;
         font-weight: 700;
         text-transform: uppercase;
         letter-spacing: 0.15em;
@@ -258,7 +270,7 @@ body {
         margin-bottom: 10px;
       }
       .q-text {
-        font-size: 20px;
+        font-size: 30px;
         font-weight: 500;
         color: var(--charcoal);
         line-height: 1.5;
@@ -269,7 +281,7 @@ body {
       .scale-labels {
         display: flex;
         justify-content: space-between;
-        font-size: 10px;
+        font-size: 20px;
         color: var(--mid);
         font-weight: 500;
         margin-bottom: 12px;
@@ -277,13 +289,15 @@ body {
       }
       .scale-btns {
         display: flex;
-        gap: 10px;
-	margin-top: 8px;
+        gap: 20px;
+        margin-top: 8px;
         justify-content: center;
       }
       .scale-btn {
         flex: 1;
-        height: 72px;
+        opacity: 0.7;
+
+        height: 102px;
         border-radius: 14px;
         border: 2px solid var(--border);
         background: var(--white);
@@ -296,13 +310,13 @@ body {
         transition: all 0.15s;
       }
       .scale-btn .snum {
-        font-size: 26px;
+        font-size: 36px;
         font-weight: 700;
         color: var(--charcoal);
       }
       .scale-btn .sword {
-        font-size: 8px;
-	opacity: 0.7;
+        font-size: 15px;
+        opacity: 0.7;
         color: var(--mid);
         text-align: center;
         line-height: 1.2;
@@ -350,6 +364,7 @@ body {
       .size-btns {
         display: flex;
         flex-direction: column;
+        opacity: 0.8;
         gap: 10px;
       }
       .size-btn {
@@ -370,18 +385,21 @@ body {
         background: var(--red-light);
       }
       .size-icon {
-        font-size: 22px;
+        font-size: 30px;
         min-width: 28px;
+        padding-left: 50px;
         text-align: center;
       }
       .size-label {
-        font-size: 15px;
+        font-size: 25px;
         font-weight: 600;
+        padding-left: 70px;
         color: var(--charcoal);
       }
       .size-sub {
-        font-size: 12px;
+        font-size: 18px;
         color: var(--mid);
+        padding-left: 70px;
         margin-top: 2px;
       }
 
@@ -391,55 +409,74 @@ body {
       }
       .result-hdr {
         background: var(--cream);
-        padding: 13px 16px;
+        padding-left: 80px;
+        padding-right: 80px;
+        padding-top: 5px;
         display: flex;
         align-items: center;
         justify-content: space-between;
         flex-shrink: 0;
-	border-bottom: 1px solid var(--border);
+        border-bottom: 1px solid var(--border);
       }
+
       .result-hdr-logo {
-        font-size: 18px;
-        font-weight: 800;
-        color: var(--red);
+        height: 60%;
+        width: auto;
+        margin-bottom: 5px;
       }
+      .result-hdr-logo img {
+        height: 90%;
+        width: auto;
+      }
+
       .result-hdr-home {
         background: transparent;
         border: 1px solid var(--border);
         border-radius: 6px;
-        padding: 5px 10px;
-        font-size: 11px;
+        padding: 10px 15px;
+        font-size: 22px;
         color: #888;
         cursor: pointer;
       }
+
       .result-hdr-home:active {
         border-color: var(--red);
         color: var(--red);
       }
       .result-body {
-        padding: 24px 20px 48px;
+        padding-left: 250px;
+        padding-right: 250px;
+        padding-top: 0;
+        padding-bottom: 0;
       }
       .result-name {
-        font-size: 27px;
+        font-size: 35px;
         font-weight: 700;
         color: var(--charcoal);
         line-height: 1.2;
         margin-bottom: 6px;
       }
       .result-oneliner {
-        font-size: 14px;
+        font-size: 20px;
         font-style: italic;
         color: var(--mid);
         line-height: 1.55;
         margin-bottom: 22px;
       }
       .result-story {
-        font-size: 15px;
+        font-size: 20px;
         color: var(--charcoal);
         line-height: 1.72;
         margin-bottom: 28px;
       }
       .rec-card {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 80%;
+        width: auto;
+        padding-left: 100px;
+        padding-right: 100px;
         background: var(--white);
         border: 1.5px solid var(--border);
         border-radius: 16px;
@@ -447,20 +484,25 @@ body {
         margin-bottom: 20px;
       }
       .rec-img {
+        padding-left: 100px;
+        padding-right: 100px;
+        padding-top: 0;
+        padding-bottom: 0px;
         width: 100%;
+
         aspect-ratio: 16/9;
-        background-color: var(--cream);
+        background-color: var(--white);
         display: flex;
         align-items: center;
         justify-content: center;
-        font-size: 13px;
+        font-size: 25px;
         letter-spacing: 0.05em;
       }
       .rec-content {
-        padding: 20px;
+        padding: 5px;
       }
       .rec-label {
-        font-size: 10px;
+        font-size: 20px;
         font-weight: 700;
         text-transform: uppercase;
         letter-spacing: 0.15em;
@@ -468,13 +510,13 @@ body {
         margin-bottom: 6px;
       }
       .rec-model {
-        font-size: 22px;
+        font-size: 30px;
         font-weight: 700;
         color: var(--charcoal);
         margin-bottom: 10px;
       }
       .rec-text {
-        font-size: 14px;
+        font-size: 18px;
         color: var(--mid);
         line-height: 1.65;
       }
@@ -506,13 +548,12 @@ body {
       </div>
 
       <div class="screen active" id="screen-intro">
-        <div class="intro-logo">LG</div>
+        <div class="lg-logo"><img src="Images/lg-logo.png" alt="LG" /></div>
         <div class="intro-title">
-          Find your <strong>TV personality</strong>
+          <bold>Find your </bold> <strong>TV personality</strong>
         </div>
         <div class="intro-sub">
-          12 quick questions. A personality type.<br />The LG screen made for
-          you.
+          12 quick questions.<br />The LG screen made for you.
         </div>
         <div class="intro-pills">
           <div class="intro-pill">🎬 Cinema lover?</div>
@@ -522,14 +563,14 @@ body {
         </div>
         <button class="intro-cta" onclick="startQuiz()">Find Out →</button>
 
-<div class="disclaimer">
-<i>Not a real personality test. Very real TVs though.</i>
-</div>
+        <div class="disclaimer">
+          <i>Not a real personality test. Very real TVs though.</i>
+        </div>
       </div>
 
       <div class="screen" id="screen-quiz">
         <div class="quiz-header">
-          <div class="hdr-logo">LG</div>
+          <div class="hdr-logo"><img src="Images/lg-logo.png" alt="LG" /></div>
           <div class="hdr-axis" id="hdrAxis">TV Appearance</div>
           <button class="hdr-home" onclick="goHome()">⌂ Home</button>
         </div>
@@ -541,7 +582,9 @@ body {
 
       <div class="screen" id="screen-result">
         <div class="result-hdr">
-          <div class="result-hdr-logo">LG</div>
+          <div class="result-hdr-logo">
+            <img src="Images/lg-logo.png" alt="LG" />
+          </div>
           <button class="result-hdr-home" onclick="goHome()">⌂ Home</button>
         </div>
         <div class="result-body" id="resultBody"></div>
@@ -707,27 +750,27 @@ body {
           sizes: {
             0: {
               tv: "OLED W6",
-	      tvImg: "W6.png",
+              tvImg: "W6.png",
               rec: "The OLED W6 was made for someone like you — a wallpaper‑thin screen that keeps the room beautifully uncluttered, fading into the wall until it's time to transform your space into a private cinema.",
             },
             1: {
               tv: "OLED C6",
-	      tvImg: "48C6.png",
+              tvImg: "48C6.png",
               rec: "The OLED C6 brings cinema-grade picture to a size that fits your space — perfect blacks, vivid colour, and a screen that earns its place on your wall.",
             },
             2: {
               tv: "OLED G6",
-	      tvImg: "G6.png",
+              tvImg: "G6.png",
               rec: "The OLED G6 mounts flush to the wall like it was always meant to be there — bringing cinema home with picture quality and scale that make every film feel immersive, cinematic, and unforgettable.",
             },
             3: {
               tv: "OLED W6",
-	      tvImg: "W6.png",
+              tvImg: "W6.png",
               rec: "The OLED W6 was made for someone like you — a wallpaper‑thin screen that keeps the room beautifully uncluttered, fading into the wall until it's time to transform your space into a private cinema.",
             },
             4: {
               tv: "OLED G6",
-	      tvImg: "G6.png",
+              tvImg: "G6.png",
               rec: "The OLED G6 mounts flush to the wall like it was always meant to be there — bringing cinema home with picture quality and scale that make every film feel immersive, cinematic, and unforgettable.",
             },
           },
@@ -741,27 +784,27 @@ body {
           sizes: {
             0: {
               tv: "OLED G6",
-	      tvImg: "G6.png",
+              tvImg: "G6.png",
               rec: "The OLED G6 mounts flush to the wall with a clean, intentional presence — a cinema‑first screen that lets films take centre stage, not the TV itself.",
             },
             1: {
               tv: "OLED C6",
-	      tvImg: "48C6.png",
+              tvImg: "48C6.png",
               rec: "The OLED C6 keeps things slim and considered — a screen that looks as good as it performs, without demanding too much of your wall.",
             },
             2: {
               tv: "OLED G6",
-	      tvImg: "G6.png",
+              tvImg: "G6.png",
               rec: "The OLED G6 mounts flush to the wall with a clean, intentional presence — a cinema‑first screen that lets films take centre stage, not the TV itself.",
             },
             3: {
               tv: "OLED G6",
-	      tvImg: "G6.png",
+              tvImg: "G6.png",
               rec: "The OLED G6 mounts flush to the wall with a clean, intentional presence — a cinema‑first screen that lets films take centre stage, not the TV itself.",
             },
             4: {
               tv: "OLED G6",
-	      tvImg: "G6.png",
+              tvImg: "G6.png",
               rec: "The OLED G6 mounts flush to the wall with a clean, intentional presence — a cinema‑first screen that lets films take centre stage, not the TV itself.",
             },
           },
@@ -775,27 +818,27 @@ body {
           sizes: {
             0: {
               tv: "MRGB86",
-	      tvImg: "MRGB86.png",
+              tvImg: "MRGB86.png",
               rec: "The MRGB86 delivers rich colour and a clean, modern aesthetic — a confident choice that feels satisfying without excess.",
             },
             1: {
               tv: "OLED C6",
-	      tvImg: "48C6.png",
+              tvImg: "48C6.png",
               rec: "The OLED C6 brings cinema-grade OLED picture — commanding attention without overwhelming the room, with clean design, perfect blacks and vivid colour.",
             },
             2: {
               tv: "OLED C6",
-	      tvImg: "C6.png",
+              tvImg: "C6.png",
               rec: "The OLED C6 brings cinema-grade OLED picture — commanding attention without overwhelming the room, with clean design, perfect blacks and vivid colour.",
             },
             3: {
               tv: "OLED C6",
-	      tvImg: "C6.png",
+              tvImg: "C6.png",
               rec: "The OLED C6 brings cinema-grade OLED picture — commanding attention without overwhelming the room, with clean design, perfect blacks and vivid colour.",
             },
             4: {
               tv: "MRGB96",
-	      tvImg: "MRGB96.png",
+              tvImg: "MRGB96.png",
               rec: 'The 100" MRGB96 delivers colour so rich and a presence so commanding, it redefines what a big-screen living room can feel like.',
             },
           },
@@ -809,27 +852,27 @@ body {
           sizes: {
             0: {
               tv: "MRGB86",
-	      tvImg: "MRGB86.png",
+              tvImg: "MRGB86.png",
               rec: "The MRGB86 handles films beautifully with enhanced colour reproduction — great picture, clean design, without going overboard on price.",
             },
             1: {
               tv: "OLED C6",
-	      tvImg: "48C6.png",
+              tvImg: "48C6.png",
               rec: "The OLED C6 punches well above its size — OLED picture quality in a compact form that fits neatly and looks genuinely good on the wall.",
             },
             2: {
               tv: "OLED B6",
-	      tvImg: "B6.png",
+              tvImg: "B6.png",
               rec: "The OLED B6 delivers genuine OLED picture quality at a size that fills the room beautifully — make every movie night feel a little more special.",
             },
             3: {
               tv: "OLED B6",
-	      tvImg: "B6.png",
+              tvImg: "B6.png",
               rec: "The OLED B6 delivers genuine OLED picture quality at a size that fills the room beautifully — make every movie night feel a little more special.",
             },
             4: {
               tv: "MRGB96",
-	      tvImg: "MRGB96.png",
+              tvImg: "MRGB96.png",
               rec: "The MRGB96 at 100\" turns your living room into something else entirely. If you're going big, go properly big.",
             },
           },
@@ -843,27 +886,27 @@ body {
           sizes: {
             0: {
               tv: "OLED G6",
-	      tvImg: "G6.png",
+              tvImg: "G6.png",
               rec: "The OLED G6 mounts flush to the wall and plays like a dream — a sleek, wall‑hugging design paired with gaming performance that fills the room and feels powerful without overwhelming the space.",
             },
             1: {
               tv: "OLED C6",
-	      tvImg: "48C6.png",
+              tvImg: "48C6.png",
               rec: "The OLED C6 delivers elite gaming performance — low lag, high refresh, OLED picture — in a compact size that keeps your setup looking sharp.",
             },
             2: {
               tv: "OLED G6",
-	      tvImg: "G6.png",
+              tvImg: "G6.png",
               rec: "The OLED G6 mounts flush to the wall and plays like a dream — a sleek, wall‑hugging design paired with gaming performance that fills the room and feels powerful without overwhelming the space.",
             },
             3: {
               tv: "OLED W6",
-	      tvImg: "W6.png",
+              tvImg: "W6.png",
               rec: "The OLED W6 is the statement piece your setup deserves — wallpaper-thin, Zero Connect Box, and gaming performance that matches the looks, without the clutter.",
             },
             4: {
               tv: "OLED G6",
-	      tvImg: "G6.png",
+              tvImg: "G6.png",
               rec: "The OLED G6 mounts flush to the wall and plays like a dream — a sleek, wall‑hugging design paired with gaming performance that fills the room and feels powerful without overwhelming the space.",
             },
           },
@@ -877,27 +920,27 @@ body {
           sizes: {
             0: {
               tv: "OLED C6",
-	      tvImg: "C6.png",
+              tvImg: "C6.png",
               rec: "The OLED C6 is the sweet spot — elite OLED gaming performance, a slim modern design, and a price that leaves room in the budget for the rest of the setup.",
             },
             1: {
               tv: "OLED C6",
-	      tvImg: "48C6.png",
+              tvImg: "48C6.png",
               rec: "The OLED C6 is the sweet spot — elite OLED gaming performance, a slim modern design, and a price that leaves room in the budget for the rest of the setup.",
             },
             2: {
               tv: "OLED G6",
-	      tvImg: "G6.png",
+              tvImg: "G6.png",
               rec: "The OLED G6 mounts flush to the wall and delivers smooth, responsive gaming — a clean, wall‑hugging design paired with performance that pulls you straight into the game world.",
             },
             3: {
               tv: "OLED G6",
-	      tvImg: "G6.png",
+              tvImg: "G6.png",
               rec: "The OLED G6 mounts flush to the wall and delivers smooth, responsive gaming — a clean, wall‑hugging design paired with performance that pulls you straight into the game world.",
             },
             4: {
               tv: "OLED G6",
-	      tvImg: "G6.png",
+              tvImg: "G6.png",
               rec: "The OLED G6 mounts flush to the wall and delivers smooth, responsive gaming — a clean, wall‑hugging design paired with performance that pulls you straight into the game world.",
             },
           },
@@ -911,27 +954,27 @@ body {
           sizes: {
             0: {
               tv: "MRGB86",
-	      tvImg: "MRGB86.png",
+              tvImg: "MRGB86.png",
               rec: "The MRGB86 brings enhanced colour reproduction and a sharp modern aesthetic to your gaming setup — a step up that your eyes will notice immediately.",
             },
             1: {
               tv: "OLED C6",
-	      tvImg: "48C6.png",
+              tvImg: "48C6.png",
               rec: "The OLED C6 keeps things compact and punchy — genuine OLED gaming quality in a size that fits the space and looks great doing it.",
             },
             2: {
               tv: "MRGB86",
-	      tvImg: "MRGB86.png",
+              tvImg: "MRGB86.png",
               rec: "The MRGB86 brings enhanced colour reproduction and a sharp modern aesthetic to your gaming setup — a step up that your eyes will notice immediately.",
             },
             3: {
               tv: "MRGB86",
-	      tvImg: "MRGB86.png",
+              tvImg: "MRGB86.png",
               rec: "The MRGB86 brings enhanced colour reproduction and a sharp modern aesthetic to your gaming setup — a step up that your eyes will notice immediately.",
             },
             4: {
               tv: "MRGB96",
-	      tvImg: "MRGB96.png",
+              tvImg: "MRGB96.png",
               rec: "The MRGB96 is the big swing — colour so vivid and a presence so bold, your gaming setup becomes the centrepiece of the room.",
             },
           },
@@ -945,27 +988,27 @@ body {
           sizes: {
             0: {
               tv: "QNED86",
-	      tvImg: "100Q86.png",
+              tvImg: "100Q86.png",
               rec: "The QNED86 is built for gaming without apology — FreeSync Premium, 120Hz refresh rate and Dolby Vision in a package that makes every game feel larger than life.",
             },
             1: {
               tv: "QNED80",
-	      tvImg: "QNED80.png",
+              tvImg: "QNED80.png",
               rec: "The QNED80 keeps things practical and capable — solid gaming performance at a size and price that makes sense, without any unnecessary extras.",
             },
             2: {
               tv: "QNED86",
-	      tvImg: "100Q86.png",
+              tvImg: "100Q86.png",
               rec: "The QNED86 is built for gaming without apology — FreeSync Premium, 120Hz refresh rate and Dolby Vision in a package that makes every game feel larger than life.",
             },
             3: {
               tv: "MRGB86",
-	      tvImg: "MRGB86.png",
+              tvImg: "MRGB86.png",
               rec: "The MRGB86 steps up the colour game while keeping gaming performance solid — enhanced picture at a size that makes every session more immersive.",
             },
             4: {
               tv: "QNED86",
-	      tvImg: "100Q86.png",
+              tvImg: "100Q86.png",
               rec: "The QNED86 is built for gaming without apology — FreeSync Premium, 120Hz refresh rate and Dolby Vision in a package that makes every game feel larger than life.",
             },
           },
@@ -979,27 +1022,27 @@ body {
           sizes: {
             0: {
               tv: "Gallery TV",
-	      tvImg: "LX7B.png",
+              tvImg: "LX7B.png",
               rec: "The Gallery TV was designed for exactly this. When it's off, it displays art. When it's on, it's a seamless part of the room. A TV that earns its place in a considered home.",
             },
             1: {
               tv: "OLED C6",
-	      tvImg: "48C6.png",
+              tvImg: "48C6.png",
               rec: "The OLED C6 keeps things slim and considered — a screen that doesn't demand attention when you don't want it to, and delivers beautifully when you do.",
             },
             2: {
               tv: "OLED G6",
-	      tvImg: "G6.png",
+              tvImg: "G6.png",
               rec: "The OLED G6 mounts flush to the wall with virtually no gap — a screen that disappears when it needs to and impresses when it doesn't.",
             },
             3: {
               tv: "OLED W6",
-	      tvImg: "W6.png",
+              tvImg: "W6.png",
               rec: "The OLED W6 is the ultimate quiet statement — a wallpaper‑thin screen that becomes part of your wall, shows art when off, and stuns when on.",
             },
             4: {
               tv: "MRGB96",
-	      tvImg: "MRGB96.png",
+              tvImg: "MRGB96.png",
               rec: "The MRGB96 brings scale and colour depth to a space that can handle it — a bold but considered statement for a room that was designed to impress.",
             },
           },
@@ -1013,27 +1056,27 @@ body {
           sizes: {
             0: {
               tv: "MRGB86",
-	      tvImg: "MRGB86.png",
+              tvImg: "MRGB86.png",
               rec: "The MRGB86 brings enhanced colour and a modern aesthetic to everyday viewing — a step above the ordinary that still feels right at home.",
             },
             1: {
               tv: "OLED C6",
-	      tvImg: "48C6.png",
+              tvImg: "48C6.png",
               rec: "The OLED C6 keeps things clean and compact — a screen that looks intentional on the wall and handles everything your everyday viewing throws at it.",
             },
             2: {
               tv: "OLED G6",
-	      tvImg: "G6.png",
+              tvImg: "G6.png",
               rec: "The OLED G6 brings a flush-mount premium design to everyday viewing — a screen that looks as good switched off as it does switched on.",
             },
             3: {
               tv: "OLED G6",
-	      tvImg: "G6.png",
+              tvImg: "G6.png",
               rec: "The OLED G6 brings a flush-mount premium design to everyday viewing — a screen that looks as good switched off as it does switched on.",
             },
             4: {
               tv: "MRGB96",
-	      tvImg: "MRGB96.png",
+              tvImg: "MRGB96.png",
               rec: "The 100\" MRGB96 turns everyday viewing into something you didn't know you were missing. Big, vivid, and genuinely impressive.",
             },
           },
@@ -1047,27 +1090,27 @@ body {
           sizes: {
             0: {
               tv: "Gallery TV",
-	      tvImg: "LX7B.png",
+              tvImg: "LX7B.png",
               rec: "The Gallery TV was designed to belong in a room like yours — always-on art display, slim frame. A screen that makes the room look good even when nobody's watching.",
             },
             1: {
               tv: "QNED80",
-	      tvImg: "QNED80.png",
+              tvImg: "QNED80.png",
               rec: "The QNED80 keeps things sensible and solid — a clean everyday screen that doesn't stand out for the wrong reasons and won't stretch the budget.",
             },
             2: {
               tv: "Gallery TV",
-	      tvImg: "LX7B.png",
+              tvImg: "LX7B.png",
               rec: "The Gallery TV was designed to belong in a room like yours — always-on art display, slim frame. A screen that makes the room look good even when nobody's watching.",
             },
             3: {
               tv: "QNED86",
-	      tvImg: "100Q86.png",
+              tvImg: "100Q86.png",
               rec: "The QNED86 brings a noticeable upgrade in picture and performance at a scale that fills the room — without asking you to spend like you're going flagship.",
             },
             4: {
               tv: '98" NU85',
-	      tvImg: "98NU85.png",
+              tvImg: "98NU85.png",
               rec: 'The 98" NU85 is the relaxed choice at a scale that impresses without demanding too much. Be wowed by the size and stay for the picture.',
             },
           },
@@ -1081,27 +1124,27 @@ body {
           sizes: {
             0: {
               tv: "NU85",
-	      tvImg: "NU85.png",
+              tvImg: "NU85.png",
               rec: "The NU85 is exactly what you need — a clean, capable everyday screen that handles whatever you put on without asking too much of the budget.",
             },
             1: {
               tv: "NU85",
-	      tvImg: "NU85.png",
+              tvImg: "NU85.png",
               rec: "The NU85 is exactly what you need — a clean, capable everyday screen that handles whatever you put on without asking too much of the budget.",
             },
             2: {
               tv: "NU85",
-	      tvImg: "NU85.png",
+              tvImg: "NU85.png",
               rec: "The NU85 keeps things simple and solid — a reliable everyday screen at a size that fits comfortably and a price that makes complete sense.",
             },
             3: {
               tv: "NU85",
-	      tvImg: "NU85.png",
+              tvImg: "NU85.png",
               rec: "The NU85 handles everything you throw at it without fuss — a dependable everyday screen that earns its place on the wall at every size.",
             },
             4: {
               tv: '98" NU85',
-	      tvImg: "98NU85.png",
+              tvImg: "98NU85.png",
               rec: 'The 98" NU85 takes things up a level without taking things too seriously. Be wowed by the size and stay for the picture.',
             },
           },
@@ -1115,27 +1158,27 @@ body {
           sizes: {
             0: {
               tv: "OLED W6",
-	      tvImg: "W6.png",
+              tvImg: "W6.png",
               rec: "The OLED W6 is the pinnacle of cinema at home — a wallpaper-thin screen with picture quality so precise, every film plays exactly as it was meant to be seen.",
             },
             1: {
               tv: "OLED C6",
-	      tvImg: "48C6.png",
+              tvImg: "48C6.png",
               rec: "The OLED C6 brings true cinema-grade OLED to a compact size — perfect blacks, Dolby Vision, and a picture that does justice to every single frame.",
             },
             2: {
               tv: "OLED G6",
-	      tvImg: "G6.png",
+              tvImg: "G6.png",
               rec: "The OLED G6 delivers gallery-class OLED picture with a flush wall mount — cinema quality wrapped in a screen that belongs in a room like yours.",
             },
             3: {
               tv: "OLED W6",
-	      tvImg: "W6.png",
+              tvImg: "W6.png",
               rec: "The OLED W6 is the pinnacle of cinema at home — a wallpaper-thin screen with picture quality so precise, every film plays exactly as it was meant to be seen.",
             },
             4: {
               tv: "OLED G6",
-	      tvImg: "G6.png",
+              tvImg: "G6.png",
               rec: "The OLED G6 brings elite cinema picture to a scale that fills the room — OLED evo quality at a size that makes every film feel like a proper event.",
             },
           },
@@ -1149,27 +1192,27 @@ body {
           sizes: {
             0: {
               tv: "OLED C6",
-	      tvImg: "C6.png",
+              tvImg: "C6.png",
               rec: "The OLED C6 gives you elite OLED picture performance — Dolby Vision, perfect blacks, vivid colour — without paying for design features that don't affect the picture.",
             },
             1: {
               tv: "OLED C6",
-	      tvImg: "48C6.png",
+              tvImg: "48C6.png",
               rec: "The OLED C6 gives you elite OLED picture performance — Dolby Vision, perfect blacks, vivid colour — in a size that fits without any compromise on what matters.",
             },
             2: {
               tv: "OLED G6",
-	      tvImg: "G6.png",
+              tvImg: "G6.png",
               rec: "The OLED G6 delivers vivid, ultra‑detailed picture quality with Brightness Booster Ultra and OLED evo technology, making everything on screen look more lifelike and vibrant.",
             },
             3: {
               tv: "OLED W6",
-	      tvImg: "W6.png",
+              tvImg: "W6.png",
               rec: "The OLED W6 represents the absolute peak of picture quality — every technical advantage OLED has to offer, in a screen that exists purely to perform.",
             },
             4: {
               tv: "OLED G6",
-	      tvImg: "G6.png",
+              tvImg: "G6.png",
               rec: "The OLED G6 at its largest delivers peak OLED picture performance at a scale where every detail becomes impossible to ignore.",
             },
           },
@@ -1183,27 +1226,27 @@ body {
           sizes: {
             0: {
               tv: "OLED C6",
-	      tvImg: "C6.png",
+              tvImg: "C6.png",
               rec: "The OLED C6 delivers true OLED territory — picture quality that makes you notice details you've never seen before, on a screen that makes films feel cinematic, right at home.",
             },
             1: {
               tv: "OLED C6",
-	      tvImg: "48C6.png",
+              tvImg: "48C6.png",
               rec: "The OLED C6 delivers true OLED territory — picture quality that makes you notice details you've never seen before, on a screen that makes films feel cinematic, right at home.",
             },
             2: {
               tv: "OLED C6",
-	      tvImg: "C6.png",
+              tvImg: "C6.png",
               rec: "The OLED C6 delivers true OLED territory — picture quality that makes you notice details you've never seen before, on a screen that makes films feel cinematic, right at home.",
             },
             3: {
               tv: "OLED C6",
-	      tvImg: "C6.png",
+              tvImg: "C6.png",
               rec: "The OLED C6 delivers true OLED territory — picture quality that makes you notice details you've never seen before, on a screen that makes films feel cinematic, right at home.",
             },
             4: {
               tv: "MRGB96",
-	      tvImg: "MRGB96.png",
+              tvImg: "MRGB96.png",
               rec: 'The 100" MRGB96 pairs breathtaking scale with deep, expressive colour, creating a cinematic centrepiece that commands the room.',
             },
           },
@@ -1217,27 +1260,27 @@ body {
           sizes: {
             0: {
               tv: "OLED B6",
-	      tvImg: "B6.png",
+              tvImg: "B6.png",
               rec: "The OLED B6 makes movie nights feel more cinematic thanks to true OLED contrast — a smart way to enjoy OLED picture quality without stretching your budget.",
             },
             1: {
               tv: "OLED C6",
-	      tvImg: "48C6.png",
+              tvImg: "48C6.png",
               rec: "The OLED C6 delivers elite OLED picture performance — Dolby Vision, perfect blacks, perfect colour — without compromising on what matters.",
             },
             2: {
               tv: "OLED B6",
-	      tvImg: "B6.png",
+              tvImg: "B6.png",
               rec: "The OLED B6 makes movie nights feel more cinematic thanks to true OLED contrast — a smart way to enjoy OLED picture quality without stretching your budget.",
             },
             3: {
               tv: "OLED B6",
-	      tvImg: "B6.png",
+              tvImg: "B6.png",
               rec: "The OLED B6 makes movie nights feel more cinematic thanks to true OLED contrast — a smart way to enjoy OLED picture quality without stretching your budget.",
             },
             4: {
               tv: "QNED86",
-	      tvImg: "100Q86.png",
+              tvImg: "100Q86.png",
               rec: "The QNED86 brings sharp, Dolby Vision-ready picture to a proper big screen — a great movie experience at a scale and price that just makes sense.",
             },
           },
@@ -1251,27 +1294,27 @@ body {
           sizes: {
             0: {
               tv: "OLED G6",
-	      tvImg: "G6.png",
+              tvImg: "G6.png",
               rec: "The OLED G6 balances performance and presence — flush‑mounted to the wall, powered by elite gaming specs, and designed to look as premium as it performs.",
             },
             1: {
               tv: "OLED C6",
-	      tvImg: "48C6.png",
+              tvImg: "48C6.png",
               rec: "The OLED C6 delivers elite gaming — low input lag, high refresh rates, G‑SYNC and FreeSync support. Compact in size, uncompromising on performance.",
             },
             2: {
               tv: "OLED G6",
-	      tvImg: "G6.png",
+              tvImg: "G6.png",
               rec: "The OLED G6 balances performance and presence — flush‑mounted to the wall, powered by elite gaming specs, and designed to look as premium as it performs.",
             },
             3: {
               tv: "OLED W6",
-	      tvImg: "W6.png",
+              tvImg: "W6.png",
               rec: "The OLED W6 takes the setup to another level — wallpaper‑thin on the wall, with a Zero Connect Box that keeps cables and consoles off the screen itself. Clean, uncluttered, and backed by gaming performance that fully matches the premium look.",
             },
             4: {
               tv: "OLED G6",
-	      tvImg: "G6.png",
+              tvImg: "G6.png",
               rec: "The OLED G6 focuses on scale and immersion — a flush‑mounted screen that fills your entire field of view and pulls you into the game.",
             },
           },
@@ -1285,27 +1328,27 @@ body {
           sizes: {
             0: {
               tv: "OLED C6",
-	      tvImg: "C6.png",
+              tvImg: "C6.png",
               rec: "The OLED C6 is the competitive choice — low input lag, high refresh rates, and full support for modern sync technologies. It delivers the performance that matters, without paying for anything that doesn't.",
             },
             1: {
               tv: "OLED C6",
-	      tvImg: "48C6.png",
+              tvImg: "48C6.png",
               rec: "The OLED C6 is the competitive choice — low input lag, high refresh rates, and full support for modern sync technologies. It delivers the performance that matters, without paying for anything that doesn't.",
             },
             2: {
               tv: "OLED C6",
-	      tvImg: "C6.png",
+              tvImg: "C6.png",
               rec: "The OLED C6 is the competitive choice — low input lag, high refresh rates, and full support for modern sync technologies. It delivers the performance that matters, without paying for anything that doesn't.",
             },
             3: {
               tv: "OLED C6",
-	      tvImg: "C6.png",
+              tvImg: "C6.png",
               rec: "The OLED C6 is the competitive choice — low input lag, high refresh rates, and full support for modern sync technologies. It delivers the performance that matters, without paying for anything that doesn't.",
             },
             4: {
               tv: "MRGB96",
-	      tvImg: "MRGB96.png",
+              tvImg: "MRGB96.png",
               rec: 'The MRGB96 delivers a serious gaming experience on a massive 100" screen — smooth, responsive, and built to keep up when the game demands everything.',
             },
           },
@@ -1319,27 +1362,27 @@ body {
           sizes: {
             0: {
               tv: "QNED86",
-	      tvImg: "100Q86.png", 
+              tvImg: "100Q86.png",
               rec: "The QNED86 balances smooth gaming performance with a confident, well‑considered look — a screen that delivers in play and still feels right as part of your room.",
             },
             1: {
               tv: "QNED80",
-	      tvImg: "QNED80.png",
+              tvImg: "QNED80.png",
               rec: "The QNED80 delivers smooth, reliable gaming in a clean, understated form — a screen that plays well and fits naturally into your space without drawing unnecessary attention.",
             },
             2: {
               tv: "QNED86",
-	      tvImg: "100Q86.png",
+              tvImg: "100Q86.png",
               rec: "The QNED86 balances smooth gaming performance with a confident, well‑considered look — a screen that delivers in play and still feels right as part of your room.",
             },
             3: {
               tv: "QNED86",
-	      tvImg: "100Q86.png",
+              tvImg: "100Q86.png",
               rec: "The QNED86 balances smooth gaming performance with a confident, well‑considered look — a screen that delivers in play and still feels right as part of your room.",
             },
             4: {
               tv: "QNED86",
-	      tvImg: "100Q86.png",
+              tvImg: "100Q86.png",
               rec: "The QNED86 balances smooth gaming performance with a confident, well‑considered look — a screen that delivers in play and still feels right as part of your room.",
             },
           },
@@ -1353,27 +1396,27 @@ body {
           sizes: {
             0: {
               tv: "QNED86",
-	      tvImg: "100Q86.png", 
+              tvImg: "100Q86.png",
               rec: "The QNED86 delivers smooth, responsive gaming with the features competitive players care about — fast refresh, stable sync, and performance that stays consistent session after session.",
             },
             1: {
               tv: "QNED80",
-	      tvImg: "QNED80.png",
+              tvImg: "QNED80.png",
               rec: "The QNED80 keeps things focused and sensible — smooth gaming performance, solid picture quality, and a clean look that fits smaller spaces without feeling like a compromise.",
             },
             2: {
               tv: "QNED86",
-	      tvImg: "100Q86.png", 
+              tvImg: "100Q86.png",
               rec: "The QNED86 delivers smooth, responsive gaming with the features competitive players care about — fast refresh, stable sync, and performance that stays consistent session after session.",
             },
             3: {
               tv: "QNED86",
-	      tvImg: "100Q86.png",
+              tvImg: "100Q86.png",
               rec: "The QNED86 delivers smooth, responsive gaming with the features competitive players care about — fast refresh, stable sync, and performance that stays consistent session after session.",
             },
             4: {
               tv: "QNED86",
-	      tvImg: "100Q86.png",
+              tvImg: "100Q86.png",
               rec: "The QNED86 delivers smooth, responsive gaming with the features competitive players care about — fast refresh, stable sync, and performance that stays consistent session after session.",
             },
           },
@@ -1387,27 +1430,27 @@ body {
           sizes: {
             0: {
               tv: "OLED W6",
-	      tvImg: "W6.png",
+              tvImg: "W6.png",
               rec: "The OLED W6 is the ultimate everyday luxury — wallpaper‑thin, beautifully integrated into your space, and breathtaking when it's time to watch.",
             },
             1: {
               tv: "OLED C6",
-	      tvImg: "48C6.png",
+              tvImg: "48C6.png",
               rec: "The OLED C6 brings premium OLED picture to a compact size — a screen that makes everything from morning news to late-night series look genuinely great.",
             },
             2: {
               tv: "OLED G6",
-	      tvImg: "G6.png",
+              tvImg: "G6.png",
               rec: "The OLED G6 elevates everyday viewing to something special — flush-mount design, premium OLED picture, and a presence that makes the room feel properly considered.",
             },
             3: {
               tv: "OLED W6",
-	      tvImg: "W6.png",
+              tvImg: "W6.png",
               rec: "The OLED W6 is the ultimate everyday luxury — wallpaper‑thin, beautifully integrated into your space, and breathtaking when it's time to watch.",
             },
             4: {
               tv: "OLED G6",
-	      tvImg: "G6.png",
+              tvImg: "G6.png",
               rec: "The OLED G6 elevates everyday viewing to something special — flush-mount design, premium OLED picture, and a presence that makes the room feel properly considered.",
             },
           },
@@ -1421,27 +1464,27 @@ body {
           sizes: {
             0: {
               tv: "MRGB96",
-	      tvImg: "MRGB96.png",
+              tvImg: "MRGB96.png",
               rec: 'The 100" MRGB96 is the living room hero in every sense — colour so rich and a scale so commanding, everyday viewing becomes something else entirely.',
             },
             1: {
               tv: "OLED C6",
-	      tvImg: "48C6.png",
+              tvImg: "48C6.png",
               rec: "The OLED C6 brings the best picture quality to everyday viewing — rich colour, perfect blacks, and OLED performance that makes everything look better than it has any right to.",
             },
             2: {
               tv: "OLED C6",
-	      tvImg: "C6.png",
+              tvImg: "C6.png",
               rec: "The OLED C6 brings the best picture quality to everyday viewing — rich colour, perfect blacks, and OLED performance that makes everything look better than it has any right to.",
             },
             3: {
               tv: "MRGB86",
-	      tvImg: "MRGB86.png",
+              tvImg: "MRGB86.png",
               rec: "The MRGB86 brings enhanced colour reproduction to a larger screen — vivid, natural picture that makes everyday viewing on a large screen genuinely impressive.",
             },
             4: {
               tv: "MRGB96",
-	      tvImg: "MRGB96.png",
+              tvImg: "MRGB96.png",
               rec: 'The 100" MRGB96 is the living room hero in every sense — colour so rich and a scale so commanding, everyday viewing becomes something else entirely.',
             },
           },
@@ -1455,27 +1498,27 @@ body {
           sizes: {
             0: {
               tv: "QNED80",
-	      tvImg: "QNED80.png",
+              tvImg: "QNED80.png",
               rec: "The QNED80 brings reliable picture quality, smooth everyday performance, and a sensible price that makes it an easy, confident choice.",
             },
             1: {
               tv: "QNED80",
-	      tvImg: "QNED80.png",
+              tvImg: "QNED80.png",
               rec: "The QNED80 brings reliable picture quality, smooth everyday performance, and a sensible price that makes it an easy, confident choice.",
             },
             2: {
               tv: "QNED80",
-	      tvImg: "QNED80.png",
+              tvImg: "QNED80.png",
               rec: "The QNED80 brings reliable picture quality, smooth everyday performance, and a sensible price that makes it an easy, confident choice.",
             },
             3: {
               tv: "QNED80",
-	      tvImg: "QNED80.png",
+              tvImg: "QNED80.png",
               rec: "The QNED80 brings reliable picture quality, smooth everyday performance, and a sensible price that makes it an easy, confident choice.",
             },
             4: {
               tv: "QNED86",
-	      tvImg: "100Q86.png",
+              tvImg: "100Q86.png",
               rec: "The QNED86 brings sharper picture, faster refresh, and Dolby Vision for a proper upgrade that doesn't go overboard.",
             },
           },
@@ -1489,27 +1532,27 @@ body {
           sizes: {
             0: {
               tv: "NU85",
-	      tvImg: "NU85.png",
+              tvImg: "NU85.png",
               rec: "The NU85 is a clean, capable everyday screen — dependable picture quality, fuss‑free performance, and a fair price that makes it easy to choose and easy to live with.",
             },
             1: {
               tv: "NU85",
-	      tvImg: "NU85.png",
+              tvImg: "NU85.png",
               rec: "The NU85 is a clean, capable everyday screen — dependable picture quality, fuss‑free performance, and a fair price that makes it easy to choose and easy to live with.",
             },
             2: {
               tv: "NU85",
-	      tvImg: "NU85.png",
+              tvImg: "NU85.png",
               rec: "The NU85 is a clean, capable everyday screen — dependable picture quality, fuss‑free performance, and a fair price that makes it easy to choose and easy to live with.",
             },
             3: {
               tv: "NU85",
-	      tvImg: "NU85.png",
+              tvImg: "NU85.png",
               rec: "The NU85 is a clean, capable everyday screen — dependable picture quality, fuss‑free performance, and a fair price that makes it easy to choose and easy to live with.",
             },
             4: {
               tv: '98" NU85',
-	      tvImg: "98NU85.png",
+              tvImg: "98NU85.png",
               rec: "The 98\" NU85 is the easy upgrade — familiar, comfortable viewing, just on a scale that makes you wonder why you didn't go bigger sooner.",
             },
           },
@@ -1523,7 +1566,7 @@ body {
           sizes: {
             0: {
               tv: 'StanbyME 2 Max (32")',
-	      tvImg: "SBM2.png",
+              tvImg: "SBM2.png",
               rec: "The 32\" StanbyMe 2 Max keeps up with all of it — compact, capable, and ready for whatever you throw at it. You're not indecisive. You're just built different.",
             },
           },
@@ -1626,7 +1669,7 @@ body {
       // RENDER QUESTION
       // ═══════════════════════════════════
       function renderQ() {
-		  document.getElementById("quizBody").classList.remove("fade-out");
+        document.getElementById("quizBody").classList.remove("fade-out");
         const pct = Math.round((curQ / (isSBM2 ? 12 : 13)) * 100);
         document.getElementById("progressFill").style.width = pct + "%";
 
@@ -1669,13 +1712,15 @@ body {
       }
 
       function pickScale(val) {
-		  document.querySelectorAll('.scale-btn').forEach(b => b.disabled = true);
-		  
+        document
+          .querySelectorAll(".scale-btn")
+          .forEach((b) => (b.disabled = true));
+
         answers[QS[curQ].id] = val;
         startIdle();
 
-let body = document.getElementById('quizBody');
-body.classList.add('fade-out');
+        let body = document.getElementById("quizBody");
+        body.classList.add("fade-out");
 
         setTimeout(() => {
           curQ++;
@@ -1694,46 +1739,43 @@ body.classList.add('fade-out');
           }
           renderQ();
           window.scrollTo(0, 0);
-body.classList.remove('fade-out');
-
+          body.classList.remove("fade-out");
         }, 220);
       }
 
       function pickSize(val) {
+        answers[QS[curQ].id] = val;
+        startIdle();
 
-	answers[QS[curQ].id] = val;
-  startIdle();
+        let body = document.getElementById("quizBody");
+        body.classList.add("fade-out");
 
-  let body = document.getElementById('quizBody');
-  body.classList.add('fade-out');
-
-  setTimeout(() => {
-    curQ++;
-    if (curQ === 12) {
-      const code = calcCode();
-      if (code === "SBM2") {
-        isSBM2 = true;
-        showResult("SBM2", 0);
-        return;
+        setTimeout(() => {
+          curQ++;
+          if (curQ === 12) {
+            const code = calcCode();
+            if (code === "SBM2") {
+              isSBM2 = true;
+              showResult("SBM2", 0);
+              return;
+            }
+          }
+          if (curQ >= 13) {
+            showResult(calcCode(), 0);
+            return;
+          }
+          renderQ();
+          window.scrollTo(0, 0);
+          body.classList.remove("fade-out");
+        }, 220);
       }
-    }
-    if (curQ >= 13) {
-      showResult(calcCode(), 0);
-      return;
-    }
-    renderQ();
-    window.scrollTo(0, 0);
-    body.classList.remove('fade-out');
-  }, 220);
-}
 
-	function pickSize(val) {
-		document.getElementById('quizBody').classList.remove('fade-out'); // added this ****
+      function pickSize(val) {
+        document.getElementById("quizBody").classList.remove("fade-out"); // added this ****
         startIdle();
         showResult(calcCode(), val);
       }
 
-		
       // ═══════════════════════════════════
       // SCORING
       // ═══════════════════════════════════
