@@ -1538,7 +1538,6 @@ body {
       let isSBM2 = false;
       let idleTimer = null;
       let countdownTimer = null;
-	  let isTransitioning = false;
       let idleSeconds = 0;
 
       // ═══════════════════════════════════
@@ -1670,6 +1669,8 @@ body {
       }
 
       function pickScale(val) {
+		  document.querySelectorAll('.scale-btn').forEach(b => b.disabled = true);
+		  
         answers[QS[curQ].id] = val;
         startIdle();
 
@@ -1699,8 +1700,7 @@ body.classList.remove('fade-out');
       }
 
       function pickSize(val) {
-		  if (isTransitioning) return;
-		  isTransitioning = true;
+
 
 	answers[QS[curQ].id] = val;
   startIdle();
@@ -1715,19 +1715,16 @@ body.classList.remove('fade-out');
       if (code === "SBM2") {
         isSBM2 = true;
         showResult("SBM2", 0);
-        isTransitioning = false;
         return;
       }
     }
     if (curQ >= 13) {
       showResult(calcCode(), 0);
-      isTransitioning = false;
       return;
     }
     renderQ();
     window.scrollTo(0, 0);
     body.classList.remove('fade-out');
-    isTransitioning = false;
   }, 220);
 }
 
