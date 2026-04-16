@@ -17,62 +17,6 @@
         font-style: normal;
       }
 
-@media screen and (max-width: 768px) {
-   .rec-card {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-        height: 80%;
-        width: auto;
-        padding-left: 0px;
-        padding-right: 40px;
-        background: var(--white);
-        border: 1.5px solid var(--border);
-        border-radius: 16px;
-        overflow: hidden;
-        margin-bottom: 20px;
-      }
-      .rec-img {
-        padding-left: 50px;
-        padding-right: 50px;
-        padding-top: 0;
-        margin-bottom: 16px;
-        width: 100%;
-
-        aspect-ratio: 16/9;
-        background-color: var(--white);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 25px;
-        letter-spacing: 0.05em;
-      }
-      .rec-content {
-        padding: 5px;
-      }
-      .rec-label {
-        font-size: 20px;
-        font-weight: 700;
-        text-transform: uppercase;
-        letter-spacing: 0.15em;
-        color: var(--red);
-        margin-bottom: 6px;
-      }
-      .rec-model {
-        font-size: 30px;
-        font-weight: 700;
-        color: var(--charcoal);
-        margin-bottom: 10px;
-      }
-      .rec-text {
-        font-size: 18px;
-        color: var(--mid);
-        line-height: 1.65;
-      }
-    }
-
       body {
         font-family: "LGSmart", sans-serif;
       }
@@ -537,7 +481,59 @@
         line-height: 1.72;
         margin-bottom: 28px;
       }
-     
+     .rec-card {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        height: 80%;
+        width: auto;
+        padding-left: 0px;
+        padding-right: 40px;
+        background: var(--white);
+        border: 1.5px solid var(--border);
+        border-radius: 16px;
+        overflow: hidden;
+        margin-bottom: 20px;
+      }
+      .rec-img {
+        padding-left: 50px;
+        padding-right: 50px;
+        padding-top: 0;
+        margin-bottom: 16px;
+        width: 100%;
+
+        aspect-ratio: 16/9;
+        background-color: var(--white);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 25px;
+        letter-spacing: 0.05em;
+      }
+      .rec-content {
+        padding: 5px;
+      }
+      .rec-label {
+        font-size: 20px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.15em;
+        color: var(--red);
+        margin-bottom: 6px;
+      }
+      .rec-model {
+        font-size: 30px;
+        font-weight: 700;
+        color: var(--charcoal);
+        margin-bottom: 10px;
+      }
+      .rec-text {
+        font-size: 18px;
+        color: var(--mid);
+        line-height: 1.65;
+      }
       .btn-retake {
         width: 100%;
         background: rgba(255, 255, 255, 0.8); /* adjust 0.6–0.9 */
@@ -553,6 +549,21 @@
         border-color: var(--red);
         color: var(--red);
       }
+
+  /* Portrait overrides */
+@media screen and (orientation: portrait) {
+  .rec-card {
+    flex-direction: column;
+    text-align: center;
+    padding-right: 0px;
+  }
+
+  .rec-img {
+    margin-bottom: 16px;
+  }
+}
+
+
     </style>
   </head>
   <body>
