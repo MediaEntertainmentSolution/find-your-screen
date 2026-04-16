@@ -17,6 +17,62 @@
         font-style: normal;
       }
 
+@media screen and (max-width: 768px) {
+   .rec-card {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        height: 80%;
+        width: auto;
+        padding-left: 0px;
+        padding-right: 40px;
+        background: var(--white);
+        border: 1.5px solid var(--border);
+        border-radius: 16px;
+        overflow: hidden;
+        margin-bottom: 20px;
+      }
+      .rec-img {
+        padding-left: 50px;
+        padding-right: 50px;
+        padding-top: 0;
+        margin-bottom: 16px;
+        width: 100%;
+
+        aspect-ratio: 16/9;
+        background-color: var(--white);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 25px;
+        letter-spacing: 0.05em;
+      }
+      .rec-content {
+        padding: 5px;
+      }
+      .rec-label {
+        font-size: 20px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.15em;
+        color: var(--red);
+        margin-bottom: 6px;
+      }
+      .rec-model {
+        font-size: 30px;
+        font-weight: 700;
+        color: var(--charcoal);
+        margin-bottom: 10px;
+      }
+      .rec-text {
+        font-size: 18px;
+        color: var(--mid);
+        line-height: 1.65;
+      }
+    }
+
       body {
         font-family: "LGSmart", sans-serif;
       }
@@ -251,11 +307,13 @@
         overflow-y: auto;
       }
       .quiz-body {
-        min-height: calc(100vh - 80px);
+        height: auto;
         display: flex;
         flex-direction: column;
         justify-content: center;
-        padding: 200px 200px 200px;
+        padding-left: 200px;
+        padding-right: 200px;
+        padding-top: 50px;
         transition:
           transform 0.25s ease,
           opacity 0.25s ease;
@@ -266,24 +324,29 @@
       }
       .q-num {
         font-size: 20px;
-        font-weight: 700;
+                padding-top: 80px;
+
+        font-weight: 500;
         text-transform: uppercase;
         letter-spacing: 0.15em;
         color: var(--red);
-        margin-bottom: 10px;
+        margin-bottom: 40px;
       }
       .q-text {
         font-size: 30px;
         font-weight: 500;
         color: var(--charcoal);
         line-height: 1.5;
-        margin-bottom: 40px;
+        margin-bottom: 50px;
       }
 
       /* SCALE */
       .scale-labels {
+                  margin-top: 120px; /* the spacing you want, only affects scale questions */
+
         display: flex;
         justify-content: space-between;
+        padding-top: 150px;
         font-size: 20px;
         color: var(--mid);
         font-weight: 500;
@@ -291,6 +354,7 @@
         padding: 0 2px;
       }
       .scale-btns {
+
         display: flex;
         gap: 20px;
         margin-top: 8px;
@@ -473,57 +537,7 @@
         line-height: 1.72;
         margin-bottom: 28px;
       }
-      .rec-card {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 80%;
-        width: auto;
-        padding-left: 0px;
-        padding-right: 40px;
-        background: var(--white);
-        border: 1.5px solid var(--border);
-        border-radius: 16px;
-        overflow: hidden;
-        margin-bottom: 20px;
-      }
-      .rec-img {
-        padding-left: 50px;
-        padding-right: 50px;
-        padding-top: 0;
-        padding-bottom: 0px;
-        width: 100%;
-
-        aspect-ratio: 16/9;
-        background-color: var(--white);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 25px;
-        letter-spacing: 0.05em;
-      }
-      .rec-content {
-        padding: 5px;
-      }
-      .rec-label {
-        font-size: 20px;
-        font-weight: 700;
-        text-transform: uppercase;
-        letter-spacing: 0.15em;
-        color: var(--red);
-        margin-bottom: 6px;
-      }
-      .rec-model {
-        font-size: 30px;
-        font-weight: 700;
-        color: var(--charcoal);
-        margin-bottom: 10px;
-      }
-      .rec-text {
-        font-size: 18px;
-        color: var(--mid);
-        line-height: 1.65;
-      }
+     
       .btn-retake {
         width: 100%;
         background: rgba(255, 255, 255, 0.8); /* adjust 0.6–0.9 */
